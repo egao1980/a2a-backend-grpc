@@ -3,7 +3,8 @@
   :description "gRPC / protobuf binding for a2a-protocol"
   :author "egao1980"
   :license "MIT"
-  :depends-on ("a2a-protocol" "grpc-protocol" "protobuf-protocol")
+  :depends-on ("a2a-protocol" "rpc-protocol" "rpc-protocol-grpc"
+               "grpc-protocol" "protobuf-protocol")
   :serial t
   :pathname "src"
   :components ((:file "package")
