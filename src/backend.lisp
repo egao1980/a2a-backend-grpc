@@ -38,18 +38,18 @@
         (setf (backend-transport backend)
               (rpc-protocol-grpc:grpc-rpc-connect (backend-target backend))))
       rpc-protocol:*rpc-transport*
-      (error 'a2a-protocol:a2a-error
-             :message "grpc A2A backend has no :agent, :target, or rpc-protocol-grpc transport")))
+      (a2a-protocol:signal-a2a-error
+       :message "grpc A2A backend has no :agent, :target, or rpc-protocol-grpc transport")))
 
 (defun %rpc (backend method params)
   (handler-case
       (rpc-protocol:rpc-call (grpc-method method) params
                              :transport (%transport backend))
     (rpc-protocol:rpc-error (c)
-      (error 'a2a-protocol:a2a-error
-             :message (rpc-protocol:rpc-error-message c)
-             :code (rpc-protocol:rpc-error-code c)
-             :data (rpc-protocol:rpc-error-data c)))))
+      (a2a-protocol:signal-a2a-error
+       :message (rpc-protocol:rpc-error-message c)
+       :code (rpc-protocol:rpc-error-code c)
+       :data (rpc-protocol:rpc-error-data c)))))
 
 (defun %rpc-stream (backend method params)
   (let ((stream (rpc-protocol:rpc-call-stream (grpc-method method) params
