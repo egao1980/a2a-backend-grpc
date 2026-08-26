@@ -4,6 +4,10 @@
            #:make-grpc-a2a-backend
            #:use-grpc-a2a-backend
            #:backend-transport
-           #:backend-target))
+           #:backend-target
+           #:backend-agent
+           #:backend-card
+           #:grpc-method
+           #:+a2a-grpc-service+))
 
 (in-package #:a2a-backend-grpc)
