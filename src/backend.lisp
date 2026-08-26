@@ -49,7 +49,8 @@
       (a2a-protocol:signal-a2a-error
        :message (rpc-protocol:rpc-error-message c)
        :code (rpc-protocol:rpc-error-code c)
-       :data (rpc-protocol:rpc-error-data c)))))
+       :data (rpc-protocol:rpc-error-data c)
+       :cause c)))))
 
 (defun %rpc-stream (backend method params)
   (let ((stream (rpc-protocol:rpc-call-stream (grpc-method method) params
