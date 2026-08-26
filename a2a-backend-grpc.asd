@@ -1,10 +1,9 @@
 (defsystem "a2a-backend-grpc"
-  :version "0.1.0"
+  :version "0.2.0"
   :description "gRPC / protobuf binding for a2a-protocol"
   :author "egao1980"
   :license "MIT"
-  :depends-on ("a2a-protocol" "rpc-protocol" "rpc-protocol-grpc"
-               "grpc-protocol" "protobuf-protocol")
+  :depends-on ("a2a-protocol" "rpc-protocol" "rpc-protocol-grpc")
   :serial t
   :pathname "src"
   :components ((:file "package")
@@ -12,7 +11,7 @@
   :in-order-to ((test-op (test-op "a2a-backend-grpc/tests"))))
 
 (defsystem "a2a-backend-grpc/tests"
-  :depends-on ("a2a-backend-grpc" "rove")
+  :depends-on ("a2a-backend-grpc" "grpc-protocol" "rove")
   :pathname "tests"
   :serial t
   :components ((:file "package")
