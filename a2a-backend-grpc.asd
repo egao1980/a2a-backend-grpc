@@ -4,6 +4,7 @@
   :author "egao1980"
   :license "MIT"
   :depends-on ("a2a-protocol" "rpc-protocol" "rpc-protocol-grpc")
+  :properties (:cl-repo (:ci (:with ("dissect"))))
   :serial t
   :pathname "src"
   :components ((:file "package")
